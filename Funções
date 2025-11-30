@@ -1,0 +1,50 @@
+# SOMA usando soma normal (permitido)
+def soma(a, b):
+    return a + b
+
+# SUBTRAÇÃO usando subtração normal (permitido)
+def subtracao(a, b):
+    return a - b
+
+# MULTIPLICAÇÃO usando SOMENTE soma
+def multiplicacao(a, b):
+    resultado = 0
+    for _ in range(abs(b)):
+        resultado = soma(resultado, a)
+
+    # Se b for negativo, o resultado deve ser negativo
+    if b < 0:
+        resultado = -resultado
+
+    return resultado
+
+# POTÊNCIA usando SOMENTE multiplicação()
+def potencia(a, b):
+    resultado = 1
+    for _ in range(b):
+        resultado = multiplicacao(resultado, a)
+    return resultado
+
+    print("=== CALCULADORA ===")
+
+a = int(input("Digite o primeiro número: "))
+b = int(input("Digite o segundo número: "))
+
+print("\nEscolha a operação:")
+print("1 - Soma")
+print("2 - Subtração")
+print("3 - Multiplicação")
+print("4 - Potência")
+
+op = int(input("Opção: "))
+
+if op == 1:
+    print("Resultado:", soma(a, b))
+elif op == 2:
+    print("Resultado:", subtracao(a, b))
+elif op == 3:
+    print("Resultado:", multiplicacao(a, b))
+elif op == 4:
+    print("Resultado:", potencia(a, b))
+else:
+    print("Opção inválida!")
