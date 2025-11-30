@@ -1,0 +1,83 @@
+alunos = []
+
+# 1.1 Receber nome e nota de 10 alunos
+for i in range(10):
+    nome = input(f"Digite o nome do aluno {i+1}: ")
+    nota = float(input(f"Digite a nota de {nome}: "))
+    alunos.append({"nome": nome, "nota": nota})
+
+# 1.2 Calcular média
+media = sum(a["nota"] for a in alunos) / len(alunos)
+
+# 1.3 Imprimir média
+print("\nMédia das notas:", media)
+
+# 1.4 Maior e menor nota
+maior_nota = max(alunos, key=lambda x: x["nota"])
+menor_nota = min(alunos, key=lambda x: x["nota"])
+
+print(f"\nMaior nota: {maior_nota['nota']} - Aluno: {maior_nota['nome']}")
+print(f"Menor nota: {menor_nota['nota']} - Aluno: {menor_nota['nome']}")
+
+# 1.5 Alunos abaixo da média
+print("\nAlunos com nota abaixo da média:")
+for a in alunos:
+    if a["nota"] < media:
+        print(f"{a['nome']} - {a['nota']}")
+
+# 1.6 Alunos na média ou acima
+print("\nAlunos com nota maior ou igual à média:")
+for a in alunos:
+    if a["nota"] >= media:
+        print(f"{a['nome']} - {a['nota']}")
+
+# EXERCÍCIO 2
+
+numeros = []
+
+# 2.1 Receber 10 números inteiros
+for i in range(10):
+    n = int(input(f"Digite o {i+1}º número: "))
+    numeros.append(n)
+
+# 2.3 Solicitar novo número
+busca = int(input("\nDigite um número para verificar se está na lista: "))
+
+# 2.4 Verificar posições
+posicoes = [i for i, num in enumerate(numeros) if num == busca]
+
+if posicoes:
+    print(f"\nO número {busca} aparece nas posições: {posicoes}")
+else:
+    print(f"\nO número {busca} NÃO está na lista.")
+
+# EXERCÍCIO 3
+
+valores = []
+
+# 3.1 Receber 10 números
+for i in range(10):
+    n = int(input(f"Digite o {i+1}º número: "))
+    valores.append(n)
+
+# 3.2 Trocar negativos por 0
+for i in range(len(valores)):
+    if valores[i] < 0:
+        valores[i] = 0
+
+# 3.3 Imprimir resultado
+print("\nValores após a substituição:", valores)
+
+# EXERCÍCIO 4
+
+print("Digite os números sorteados:")
+sorteados = [int(input(f"Número {i+1}: ")) for i in range(6)]
+
+print("\nDigite os números que você jogou:")
+jogo = [int(input(f"Número {i+1}: ")) for i in range(6)]
+
+# 4.3 Contar pontos
+pontos = len(set(sorteados) & set(jogo))
+
+print(f"\nVocê acertou {pontos} número(s).")
+
